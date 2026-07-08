@@ -5,21 +5,15 @@ import com.shortly.entity.Link;
 
 public class LinkMapper {
 
-    public static LinkResponse toResponse(Link link) {
+    public static LinkResponse toResponse(Link link, String shortUrl) {
 
         return LinkResponse.builder()
                 .id(link.getId())
                 .originalUrl(link.getOriginalUrl())
                 .shortCode(link.getShortCode())
-                .shortUrl(buildShortUrl(link))
+                .shortUrl(shortUrl)
                 .clickCount(link.getClickCount())
                 .build();
-
-    }
-
-    public static String buildShortUrl(Link link) {
-
-        return "http://localhost:8080/r/" + link.getShortCode();
 
     }
 

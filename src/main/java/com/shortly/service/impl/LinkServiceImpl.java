@@ -10,6 +10,7 @@ import com.shortly.repository.LinkRepository;
 import com.shortly.service.LinkService;
 import com.shortly.util.ShortCodeGenerator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -22,21 +23,22 @@ public class LinkServiceImpl implements LinkService {
 
     private final LinkRepository linkRepository;
 
+    @Value("${app.base-url}")
+    private String appBaseUrl;
+
     @Override
     public LinkResponse createLink(CreateLinkRequest request, User user) {
-
-        Optional<Link> existingLink =
-                linkRepository.findByOriginalUrlAndUser(
-                        request.getOriginalUrl(),
-                        user
-                );
+        Optional<Link> existingLink = linkRepository.findByOriginalUrlAndUser(
+                request.getOriginalUrl(),
+                user
+        );
 
         if (existingLink.isPresent()) {
-            return LinkMapper.toResponse(existingLink.get());
+            String shortUrl = appBaseUrl + "/r/" + existingLink.get().getShortCode();
+            return LinkMapper.toResponse(existingLink.get(), shortUrl);
         }
 
         String shortCode;
-
         do {
             shortCode = ShortCodeGenerator.generate(6);
         } while (linkRepository.existsByShortCode(shortCode));
@@ -50,45 +52,39 @@ public class LinkServiceImpl implements LinkService {
 
         linkRepository.save(link);
 
-        return LinkMapper.toResponse(link);
+        String shortUrl = appBaseUrl + "/r/" + link.getShortCode();
+        return LinkMapper.toResponse(link, shortUrl);
     }
 
     @Override
     public List<LinkResponse> getUserLinks(User user) {
-
         return linkRepository.findByUser(user)
                 .stream()
-                .map(LinkMapper::toResponse)
+                .map(link -> LinkMapper.toResponse(
+                        link,
+                        appBaseUrl + "/r/" + link.getShortCode()
+                ))
                 .toList();
-
     }
 
     @Override
     public void deleteLink(Long id) {
-
         linkRepository.deleteById(id);
-
     }
 
     @Override
     public AnalyticsResponse getAnalytics(User user) {
-
         List<Link> links = linkRepository.findByUser(user);
 
         long totalLinks = links.size();
-
         long totalClicks = links.stream()
                 .mapToLong(Link::getClickCount)
                 .sum();
-
-        double averageClicks =
-                totalLinks == 0
-                        ? 0
-                        : (double) totalClicks / totalLinks;
+        double averageClicks = totalLinks == 0 ? 0 : (double) totalClicks / totalLinks;
 
         String mostClickedLink = links.stream()
                 .max(Comparator.comparingLong(Link::getClickCount))
-                .map(LinkMapper::buildShortUrl)
+                .map(link -> appBaseUrl + "/r/" + link.getShortCode())
                 .orElse("-");
 
         return AnalyticsResponse.builder()
