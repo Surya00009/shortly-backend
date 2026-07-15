@@ -102,3 +102,48 @@ Monitor the performance of your shortened URLs with built-in analytics.
 - MySQL Workbench
 - Git
 - GitHub
+---
+
+# 🏗 Architecture
+
+The application follows a layered architecture to ensure separation of concerns, maintainability, and scalability.
+
+```
+                    React Frontend
+                           │
+                     Axios HTTP Client
+                           │
+                    Spring Boot Backend
+                           │
+                   Spring Security (JWT)
+                           │
+                     REST Controllers
+                           │
+                    Service Layer
+                           │
+                 Spring Data JPA Repository
+                           │
+                        Hibernate
+                           │
+                         MySQL
+```
+
+## Request Flow
+
+1. The user interacts with the React frontend.
+2. Axios sends HTTP requests to the Spring Boot REST APIs.
+3. Spring Security validates the JWT token and authorizes the request.
+4. Controllers receive the request and delegate business logic to the Service layer.
+5. The Service layer processes the request and interacts with the Repository layer.
+6. Spring Data JPA and Hibernate perform database operations on MySQL.
+7. The processed response is returned to the frontend as JSON.
+
+## Architecture Highlights
+
+- Layered Architecture (Controller → Service → Repository)
+- DTO-based request and response handling
+- JWT-based Authentication and Authorization
+- RESTful API Communication
+- Spring Data JPA with Hibernate ORM
+- Centralized Exception Handling
+- Input Validation for API Requests
