@@ -253,8 +253,8 @@ The backend exposes RESTful APIs for authentication, URL management, analytics, 
 
 | Method | Endpoint | Authentication | Description |
 |---------|----------|---------------|-------------|
-| POST | `/api/auth/register` | No | Register a new user account |
-| POST | `/api/auth/login` | No | Authenticate user and generate JWT token |
+| POST | `/api/auth/register` | yes | Register a new user account |
+| POST | `/api/auth/login` | yes | Authenticate user and generate JWT token |
 
 ---
 
@@ -310,3 +310,25 @@ The application uses **Spring Security** with **JWT (JSON Web Token)** to provid
 6. Every protected API request includes the JWT token in the Authorization header.
 7. Spring Security validates the token before processing the request.
 8. Authorized users can access only their own resources.
+---
+
+# 🧠 Business Logic
+
+The application implements several backend functionalities beyond basic CRUD operations to ensure secure and efficient URL management.
+
+## Core Business Logic
+
+- Generates a unique short code for every URL.
+- Prevents duplicate URLs from being created for the same user.
+- Validates URL format before storing it in the database.
+- Tracks every successful URL redirection.
+- Maintains click counts for each shortened URL.
+- Records click analytics for every URL access.
+- Calculates dashboard statistics, including:
+  - Total Links
+  - Total Clicks
+  - Average Clicks
+  - Top Performing Link
+- Supports pagination for efficient retrieval of user links.
+- Restricts users to accessing and managing only their own URLs.
+- Provides centralized exception handling for consistent API responses.
