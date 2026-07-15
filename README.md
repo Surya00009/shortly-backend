@@ -243,3 +243,41 @@ User (1)
 - Each **Link** belongs to exactly one user.
 - Each **Link** can have multiple click analytics records.
 - Click analytics data is used to generate dashboard statistics and track URL performance.
+- ---
+
+# 🔌 REST API Documentation
+
+The backend exposes RESTful APIs for authentication, URL management, analytics, and redirection.
+
+## Authentication APIs
+
+| Method | Endpoint | Authentication | Description |
+|---------|----------|---------------|-------------|
+| POST | `/api/auth/register` | No | Register a new user account |
+| POST | `/api/auth/login` | No | Authenticate user and generate JWT token |
+
+---
+
+## URL Management APIs
+
+| Method | Endpoint | Authentication | Description |
+|---------|----------|---------------|-------------|
+| POST | `/api/links` | Yes | Create a new shortened URL |
+| GET | `/api/links` | Yes | Retrieve all URLs created by the authenticated user |
+| DELETE | `/api/links/{id}` | Yes | Delete a shortened URL |
+
+---
+
+## Analytics APIs
+
+| Method | Endpoint | Authentication | Description |
+|---------|----------|---------------|-------------|
+| GET | `/api/analytics` | Yes | Retrieve dashboard analytics and link statistics |
+
+---
+
+## Redirect API
+
+| Method | Endpoint | Authentication | Description |
+|---------|----------|---------------|-------------|
+| GET | `/r/{shortCode}` | No | Redirect users to the original URL and record click analytics |
