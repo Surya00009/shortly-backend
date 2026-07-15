@@ -281,3 +281,32 @@ The backend exposes RESTful APIs for authentication, URL management, analytics, 
 | Method | Endpoint | Authentication | Description |
 |---------|----------|---------------|-------------|
 | GET | `/r/{shortCode}` | No | Redirect users to the original URL and record click analytics |
+---
+
+# 🔒 Security
+
+The application uses **Spring Security** with **JWT (JSON Web Token)** to provide secure authentication and authorization.
+
+## Security Features
+
+- JWT-based Authentication
+- Stateless Session Management
+- BCrypt Password Encryption
+- Protected REST APIs
+- User-specific Authorization
+- Role-based request validation using Spring Security
+- Unauthorized request handling
+- Secure password storage
+
+---
+
+## Authentication Flow
+
+1. The user registers with a unique email address.
+2. The password is encrypted using BCrypt before being stored in the database.
+3. The user logs in with valid credentials.
+4. The backend authenticates the user and generates a JWT token.
+5. The client stores the JWT token.
+6. Every protected API request includes the JWT token in the Authorization header.
+7. Spring Security validates the token before processing the request.
+8. Authorized users can access only their own resources.
