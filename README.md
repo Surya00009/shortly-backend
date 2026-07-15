@@ -7,9 +7,9 @@
 ![JWT](https://img.shields.io/badge/JWT-Security-red)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
 
-Shortly is a secure URL management platform built using **Java, Spring Boot, Spring Security, JWT, Hibernate, MySQL, and React**. It enables authenticated users to create, manage, and analyze shortened URLs through a secure dashboard.
+Shortly is a secure full-stack URL management platform built using **Java, Spring Boot, Spring Security, JWT, Hibernate, MySQL, and React**. It enables authenticated users to create, manage, and analyze shortened URLs through a secure dashboard.
 
-The backend follows a layered architecture with secure JWT-based authentication, RESTful APIs, and MySQL database integration.
+The backend follows a layered architecture with secure JWT-based authentication, RESTful APIs, and MySQL database integration, while the React frontend provides an intuitive interface for URL management and analytics.
 
 ---
 
@@ -37,7 +37,9 @@ The backend follows a layered architecture with secure JWT-based authentication,
 
 ---
 
-## 📊 Analytics
+## 📊 Analytics Dashboard
+
+Monitor the performance of your shortened URLs with built-in analytics.
 
 - Total Links
 - Total Clicks
@@ -49,11 +51,13 @@ The backend follows a layered architecture with secure JWT-based authentication,
 
 ---
 
-## ⚙ Backend Features
+## ⚙️ Backend Features
 
 - Layered Architecture
-- RESTful APIs
+- RESTful API Development
+- Spring Security Integration
+- Spring Data JPA and Hibernate
 - Input Validation
 - Global Exception Handling
 - Pagination
-- Spring Data JPA and Hibernate Integration
+- MySQL Database Integration
