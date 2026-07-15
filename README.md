@@ -147,3 +147,39 @@ The application follows a layered architecture to ensure separation of concerns,
 - Spring Data JPA with Hibernate ORM
 - Centralized Exception Handling
 - Input Validation for API Requests
+---
+
+# 📂 Project Structure
+
+## Backend
+
+```
+src
+├── config
+├── controller
+├── dto
+├── entity
+├── exception
+├── mapper
+├── repository
+├── security
+├── service
+│   └── impl
+└── util
+```
+
+### Package Responsibilities
+
+| Package | Purpose |
+|----------|---------|
+| `config` | Application and configuration classes. |
+| `controller` | Exposes REST APIs and handles incoming HTTP requests. |
+| `dto` | Defines request and response objects exchanged between the client and server. |
+| `entity` | Represents database tables using JPA entities. |
+| `exception` | Contains custom exceptions and global exception handling. |
+| `mapper` | Converts DTOs to entities and entities to DTOs. |
+| `repository` | Provides database access using Spring Data JPA repositories. |
+| `security` | Implements JWT authentication, authorization, and Spring Security configuration. |
+| `service` | Contains business logic and application services. |
+| `service.impl` | Provides implementations of the service interfaces. |
+| `util` | Contains reusable utility classes used across the application. |
