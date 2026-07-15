@@ -332,3 +332,116 @@ The application implements several backend functionalities beyond basic CRUD ope
 - Supports pagination for efficient retrieval of user links.
 - Restricts users to accessing and managing only their own URLs.
 - Provides centralized exception handling for consistent API responses.
+- ---
+
+# ⚙️ Setup & Installation
+
+## Prerequisites
+
+Before running the application, ensure the following software is installed:
+
+- Java 21
+- Maven
+- MySQL Server
+- Node.js and npm
+- Git
+- IntelliJ IDEA (Recommended)
+- VS Code (For Frontend)
+
+---
+
+## Clone the Repositories
+
+### Backend
+
+```bash
+git clone https://github.com/Surya00009/shortly-backend.git
+```
+
+### Frontend
+
+```bash
+git clone https://github.com/Surya00009/shortly-frontend.git
+```
+
+---
+
+## Configure the Database
+
+1. Create a MySQL database.
+
+```sql
+CREATE DATABASE shortly_db;
+```
+
+2. Update the database configuration in `application.properties`.
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/shortly_db
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
+```
+
+---
+
+## Run the Backend
+
+Navigate to the backend project directory.
+
+```bash
+cd shortly-backend
+```
+
+Run the application using Maven.
+
+```bash
+./mvnw spring-boot:run
+```
+
+Or run the main Spring Boot application from IntelliJ IDEA.
+
+The backend will start on:
+
+```
+http://localhost:8080
+```
+
+---
+
+## Run the Frontend
+
+Navigate to the frontend project directory.
+
+```bash
+cd shortly-frontend
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Start the development server.
+
+```bash
+npm run dev
+```
+
+The frontend will start on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Access the Application
+
+Open your browser and visit:
+
+```
+http://localhost:5173
+```
+
+Register a new account, log in, and start creating shortened URLs.
