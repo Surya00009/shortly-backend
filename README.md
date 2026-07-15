@@ -183,3 +183,63 @@ src
 | `service` | Contains business logic and application services. |
 | `service.impl` | Provides implementations of the service interfaces. |
 | `util` | Contains reusable utility classes used across the application. |
+
+---
+
+# 🗄 Database Design
+
+The application uses **MySQL** as the relational database to store user information, shortened URLs, and click analytics.
+
+## Entity Relationship
+
+```text
+User (1)
+   │
+   └──────────────► Link (Many)
+                         │
+                         └────────────► ClickAnalytics (Many)
+```
+
+---
+
+## User
+
+| Column | Description |
+|---------|-------------|
+| `id` | Unique identifier for the user |
+| `full_name` | User's full name |
+| `email` | User email address |
+| `password` | Encrypted password using BCrypt |
+
+---
+
+## Link
+
+| Column | Description |
+|---------|-------------|
+| `id` | Unique identifier for the shortened link |
+| `original_url` | Original URL provided by the user |
+| `short_code` | Generated unique short code |
+| `click_count` | Total number of clicks |
+| `created_at` | Link creation timestamp |
+| `last_accessed` | Most recent access timestamp |
+| `user_id` | Foreign key referencing the owner of the link |
+
+---
+
+## ClickAnalytics
+
+| Column | Description |
+|---------|-------------|
+| `id` | Unique identifier |
+| `clicked_at` | Timestamp of the click event |
+| `link_id` | Foreign key referencing the associated link |
+
+---
+
+## Relationships
+
+- One **User** can create multiple shortened links.
+- Each **Link** belongs to exactly one user.
+- Each **Link** can have multiple click analytics records.
+- Click analytics data is used to generate dashboard statistics and track URL performance.
