@@ -253,8 +253,8 @@ The backend exposes RESTful APIs for authentication, URL management, analytics, 
 
 | Method | Endpoint | Authentication | Description |
 |---------|----------|---------------|-------------|
-| POST | `/api/auth/register` | yes | Register a new user account |
-| POST | `/api/auth/login` | yes | Authenticate user and generate JWT token |
+| POST | `/api/auth/register` | No | Register a new user account |
+| POST | `/api/auth/login` | No | Authenticate user and generate JWT token |
 
 ---
 
