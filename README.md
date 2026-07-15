@@ -61,3 +61,44 @@ Monitor the performance of your shortened URLs with built-in analytics.
 - Global Exception Handling
 - Pagination
 - MySQL Database Integration
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+- Java 21
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- REST APIs
+- JWT Authentication
+- Maven
+
+---
+
+## Frontend
+
+- React.js
+- React Router
+- Axios
+- CSS3
+- Vite
+
+---
+
+## Database
+
+- MySQL
+
+---
+
+## Tools
+
+- IntelliJ IDEA
+- VS Code
+- Postman
+- MySQL Workbench
+- Git
+- GitHub
