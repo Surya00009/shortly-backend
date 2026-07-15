@@ -10,6 +10,20 @@
 Shortly is a secure full-stack URL management platform built using **Java, Spring Boot, Spring Security, JWT, Hibernate, MySQL, and React**. It enables authenticated users to create, manage, and analyze shortened URLs through a secure dashboard.
 
 The backend follows a layered architecture with secure JWT-based authentication, RESTful APIs, and MySQL database integration, while the React frontend provides an intuitive interface for URL management and analytics.
+## 📑 Table of Contents
+
+- Features
+- Tech Stack
+- Architecture
+- Project Structure
+- Database Design
+- REST API Documentation
+- Security
+- Business Logic
+- Setup & Installation
+- Screenshots
+- Future Enhancements
+- Author
 
 ---
 
