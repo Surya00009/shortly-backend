@@ -445,3 +445,47 @@ http://localhost:5173
 ```
 
 Register a new account, log in, and start creating shortened URLs.
+---
+
+# 📸 Application Screenshots
+
+The following screenshots demonstrate the key features and user interface of the Shortly application.
+
+## Login Page
+
+> Add a screenshot of the user login page here.
+
+---
+
+## Registration Page
+
+> Add a screenshot of the user registration page here.
+
+---
+
+## Dashboard
+
+> Add a screenshot of the dashboard displaying the user's shortened URLs.
+
+---
+
+## Analytics Dashboard
+
+> Add a screenshot showing Total Links, Total Clicks, Average Clicks, Top Performing Link, and other analytics.
+
+---
+
+## URL Management
+
+> Add a screenshot demonstrating URL creation, search, and deletion.
+
+---
+
+## API Testing (Postman)
+
+> Add screenshots of successful API requests, including:
+>
+> - User Registration
+> - User Login
+> - Create Short URL
+> - Analytics API
