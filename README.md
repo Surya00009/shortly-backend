@@ -489,3 +489,19 @@ The following screenshots demonstrate the key features and user interface of the
 > - User Login
 > - Create Short URL
 > - Analytics API
+> - ---
+
+# 🚀 Future Enhancements
+
+The following features are planned to further improve the functionality and user experience of the application:
+
+- Generate QR Codes for shortened URLs.
+- Support custom short URL aliases.
+- Configure expiration dates for links.
+- Display browser and device analytics.
+- Track country and location-based analytics.
+- Export analytics reports as CSV files.
+- Implement an Admin Dashboard for platform management.
+- Add password reset and email verification.
+- Improve search and filtering capabilities.
+- Deploy the application using cloud platforms for public access.
